@@ -3,7 +3,7 @@ import { Form, Col, Row, Button } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import moment from 'moment';
 
-function NewTripForm() {
+function NewTripForm({handleAddTrip}) {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [formData, setFormData] = useState({
@@ -16,12 +16,18 @@ function NewTripForm() {
     function handleForm(e) {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        handleAddTrip(formData)
+    }
+
     console.log(formData)
     return (
         <div className="pt-5 trip_form">
             <h2>Create New Trip</h2>
             <div id='tripform'>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3">
                         <Form.Label>Trip Name</Form.Label>
                         <Form.Control onChange={handleForm} name="name" type="text" placeholder="Enter Trip Name" />
