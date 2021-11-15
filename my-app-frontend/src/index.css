@@ -55,3 +55,14 @@ body {
   color: darkred;
   font-family: 'Abril Fatface', cursive;
 }
+
+#tripcard {
+  display:flex;
+	justify-content: center;
+}
+
+#tripcard .card {
+  width: 40%;
+  background: transparent;
+  border:none;
+}
