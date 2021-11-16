@@ -116,3 +116,15 @@ display: inline;
 
 }
 
+#activityform {
+  display:flex;
+	justify-content: center;
+}
+#activityform form {
+  width: 80%;
+}
+
+#activityform form input {
+  background: transparent;
+  border: 1px solid brown;
+}

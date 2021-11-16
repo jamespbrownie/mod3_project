@@ -5,9 +5,38 @@ import { Form, Col, Row, Button } from 'react-bootstrap';
 
 function DayCard({day}) {
     const [activity, setActivity] = useState(false)
+    const [formData, setFormData] = useState({
+        name:"",
+        cost:0,
+        duration:0,
+        day_id:day.id
+    })
+    const [activities, setActivities] = useState(day.activities)
 
     function addActivity() {
         setActivity(true)
+    }
+
+    function handleFormChange(e) {
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        fetch("http://localhost:9292/activities", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData)
+            }).then((r) => r.json()).then((a)=>{handleAddAc(a)})
+        e.target.reset()
+        setActivity(false)
+    }
+
+    function handleAddAc(a) {
+        const newActivityList = [a, ...activities]
+        setActivities(newActivityList)
     }
 
     return (
@@ -15,22 +44,38 @@ function DayCard({day}) {
             <Card className="text-center">
                 <Card.Header>Day {day.id}</Card.Header>
                 <Card.Body>
-                    {day.activities.map((a)=>{
-                        <>
-                        return <Card.Text>${a.cost} - {a.name} ({a.duration}h)</Card.Text>
-                        </>
+                    {activities.map((a,index)=>{
+                        return (
+                            <Card.Text key={index}>
+                                ${a.cost} - {a.name} ({a.duration}h) 
+                                <span><Button className='m-1 p-1'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg></Button></span>
+                                <span><Button className='m-1 p-1'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                                    <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                                </svg></Button></span>
+                            </Card.Text>
+                        )
                     })}
                     {activity? 
-                    <Form >
-                    <Form.Group className="mb-3">
-                        <Form.Label>Activity Name</Form.Label>
-                        <Form.Control  name="name" type="text" placeholder="Enter Activity Name" />
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Label>Activity Name</Form.Label>
-                        <Form.Control  name="price" type="text" placeholder="Enter Activity Price" />
-                    </Form.Group>
-                    </Form>
+                    <div id="activityform">
+                        <Form onSubmit={handleSubmit}>
+                            <Form.Group className="mb-3">
+                                <Form.Control name="name" onChange={handleFormChange} type="text" placeholder="Activity Name" />
+                            </Form.Group>
+                            <Row className="mb-3">
+                                <Form.Group as={Col}>
+                                    <Form.Control name="cost" onChange={handleFormChange} type="number" placeholder="Cost" />
+                                </Form.Group>
+                                <Form.Group as={Col}>
+                                    <Form.Control name="duration" onChange={handleFormChange} type="number" placeholder="Hours" />
+                                </Form.Group>
+                            </Row>
+                            <Button className="mx-2" variant="outline-dark" type="submit">Submit</Button>
+                        </Form>
+                    </div>
                     : 
                     <button  id="addActivityBtn" onClick={addActivity}>+ Add Activity</button> }
                 </Card.Body>

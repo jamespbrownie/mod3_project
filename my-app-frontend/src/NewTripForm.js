@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Form, Col, Row, Button } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
-import moment from 'moment';
 
 function NewTripForm({handleAddTrip}) {
     const [startDate, setStartDate] = useState(new Date());
