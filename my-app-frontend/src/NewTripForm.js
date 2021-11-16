@@ -28,6 +28,8 @@ function NewTripForm({handleAddTrip}) {
                 end_date: endDate
             })
             }).then((r) => r.json()).then((trip)=>{handleAddTrip(trip)})
+            e.target.reset()
+            alert("Start packing your bags! Your trip has been created")
     }
 
     return (
