@@ -19,6 +19,9 @@ function TripDetail() {
         fetch(url).then(r=>r.json()).then(t=> {
             setTrip(t)
             setTotalCost(t.totalCost)
+            if (t.totalCost > trip.budget) {
+                alert("Uh oh, looks like you're over budget! You should remove an activity.")
+            }
         })
     },[totalCost])
     console.log(trip)
