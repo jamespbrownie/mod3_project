@@ -12,14 +12,14 @@ function App() {
     fetch("http://localhost:9292/trips").then((r)=>r.json())
     .then((trips)=>{setTrips(trips)})
   }, [])
-  console.log(trips)
+  // console.log(trips)
 
   function handleAddTrip (newTrip) {
     const newTripList = [newTrip, ...trips]
     setTrips(newTripList)
   
   }
-  console.log(trips)
+  // console.log(trips)
   return (
     <div className="App">
       <h1 className='py-3' id="header">Vacation Planner</h1>

@@ -56,9 +56,16 @@ body {
   font-family: 'Abril Fatface', cursive;
 }
 
+#tripbody {
+  justify-content: center;
+  text-align: center;
+}
+
 #tripcard {
-  display:flex;
+  display:inline-block;
 	justify-content: center;
+  width: 50%;
+  
 }
 
 #tripcard .card {
@@ -98,3 +105,14 @@ background: linear-gradient(90deg, rgba(255,229,197,1) 0%, rgba(179,27,1,0.39259
   color: white;
   border: none;
 }
+
+#tripDetail {
+display: inline;
+}
+
+#addActivityBtn {
+  border: none;
+  background: transparent;
+
+}
+

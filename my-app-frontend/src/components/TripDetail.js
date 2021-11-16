@@ -17,12 +17,17 @@ function TripDetail() {
         fetch(url).then(r=>r.json()).then(t=>setTrip(t))
     },[])
     console.log(trip)
+
     return(
         <div className="mt-3">
             <h3>{trip.name}</h3>
             <p>{trip.start_date.slice(0,10)} to {trip.end_date.slice(0,10)} with ${trip.budget} budget</p>
             {trip.days.map((day)=>{
-                return <DayCard day={day} />
+                return (
+                    <div id="tripDetail" key={Math.floor(Math.random() * 100000)}>
+                <DayCard day={day} />                    
+                    </div>
+                )
             })}
         </div>
     )
