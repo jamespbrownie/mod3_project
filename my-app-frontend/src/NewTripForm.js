@@ -9,15 +9,11 @@ function NewTripForm({handleAddTrip}) {
     const [formData, setFormData] = useState({
         name: "",
         participants: "",
-        budget: 0,
-        start_date: startDate.toISOString().slice(0,10),
-        end_date: endDate.toISOString().slice(0,10)
+        budget: 0
     })
     function handleForm(e) {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
-    console.log(formData)
-
     function handleSubmit(e) {
         e.preventDefault()
         fetch("http://localhost:9292/trips", {
@@ -25,8 +21,14 @@ function NewTripForm({handleAddTrip}) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(formData),
-            }).then((r) => r.json())
+            body: JSON.stringify({
+                name: formData.name,
+                budget: formData.budget,
+                participants: formData.participants,
+                start_date: startDate,
+                end_date: endDate
+            })
+            }).then((r) => r.json()).then((trip)=>{handleAddTrip(trip)})
     }
 
     return (
