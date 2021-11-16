@@ -6,7 +6,7 @@
 }
 
 body {
-  background: bisque;
+  background: #ffe5c5;
 }
 
 #header {
@@ -62,7 +62,39 @@ body {
 }
 
 #tripcard .card {
-  width: 40%;
   background: transparent;
   border:none;
+  font-family: 'Abril Fatface', cursive;
+  font-weight: lighter;
+}
+
+#tripcard .card :hover {
+  background: rgb(255,229,197);
+background: linear-gradient(90deg, rgba(255,229,197,1) 0%, rgba(179,27,1,0.3925945378151261) 50%, rgba(255,229,197,1) 100%);
+  color: white;
+}
+
+#tripcard a {
+  text-decoration: none;
+  color: darkred;
+}
+
+#daycard {
+  display:flex;
+	justify-content: center;
+}
+
+#daycard .card {
+  background: transparent;
+  border:none;
+  font-family: 'Abril Fatface', cursive;
+  font-weight: lighter;
+}
+
+#daycard .card .card-header {
+  background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=8B0000);
+        margin: -2px -6px;
+        padding:  2px  6px;
+  color: white;
+  border: none;
 }

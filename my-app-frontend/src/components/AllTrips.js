@@ -6,10 +6,10 @@ function AllTrips ({trips}) {
         <div id="tripcard">
         {/* <p>{trips}</p>
         <p> hello? </p> */}
-        {trips.map((trip) => {
+        {trips.map((trip,index) => {
             return (
                 <Link to={`/${trip.id}`} key={trip.id} >
-                <TripCard trip={trip} />
+                <TripCard key={index} trip={trip} />
                 </Link>
             )
         })}

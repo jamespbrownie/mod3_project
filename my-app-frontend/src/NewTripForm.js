@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Form, Col, Row, Button } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import moment from 'moment';
@@ -10,19 +10,25 @@ function NewTripForm({handleAddTrip}) {
         name: "",
         participants: "",
         budget: 0,
-        start_date: startDate.getTime(),
-        end_date: endDate.getTime()
+        start_date: startDate.toISOString().slice(0,10),
+        end_date: endDate.toISOString().slice(0,10)
     })
     function handleForm(e) {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
+    console.log(formData)
 
     function handleSubmit(e) {
         e.preventDefault()
-        handleAddTrip(formData)
+        fetch("http://localhost:9292/trips", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+            }).then((r) => r.json())
     }
 
-    console.log(formData)
     return (
         <div className="pt-5 trip_form">
             <h2>Create New Trip</h2>
@@ -43,11 +49,11 @@ function NewTripForm({handleAddTrip}) {
                     <Row className="mb-3">
                         <Form.Group as={Col}>
                             <Form.Label>Start Date</Form.Label>
-                            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="yyyy/MM/d" />
+                            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label>End Date</Form.Label>
-                            <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} dateFormat="yyyy/MM/d" />
+                            <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
                         </Form.Group>
                     </Row>
                     <Button variant="outline-dark" className="mt-3" type="submit">
