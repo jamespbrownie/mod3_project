@@ -1,4 +1,4 @@
-
+import { Outlet, Link } from 'react-router-dom'
 import TripCard from "./TripCard"
 
 function AllTrips ({trips}) {
@@ -8,9 +8,12 @@ function AllTrips ({trips}) {
         <p> hello? </p> */}
         {trips.map((trip) => {
             return (
+                <Link to={`/${trip.id}`} key={trip.id} >
                 <TripCard trip={trip} />
+                </Link>
             )
         })}
+        <Outlet/>
         </div>
     )
 }

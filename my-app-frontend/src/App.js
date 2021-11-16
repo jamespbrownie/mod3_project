@@ -2,6 +2,7 @@ import { Navbar, Container } from 'react-bootstrap';
 import { Outlet, Link, Routes, Route } from "react-router-dom";
 import AllTrips from "./components/AllTrips" 
 import NewTripForm from './NewTripForm';
+import TripDetail from './components/TripDetail';
 import Home from './Home';
 import { useEffect, useState } from 'react';
 
@@ -37,7 +38,16 @@ function App() {
           <Route path="/" element={<Home trips={trips} />} />
           <Route path="newtrip" element={<NewTripForm handleAddTrip={handleAddTrip}/>} />
           <Route path="all_trips" element={<AllTrips trips={trips}/>} />
-
+          <Route path=":TripDetailid" element={<TripDetail/>} />
+          
+          <Route
+            path="*"
+            element={
+            <main style={{ padding: "1rem" }}>
+            <p>There's nothing here!</p>
+        </main>
+      }
+    />
         </Routes>
       </Container>
     </div>
