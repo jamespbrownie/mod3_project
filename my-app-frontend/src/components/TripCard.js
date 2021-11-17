@@ -1,6 +1,8 @@
 import Card from "react-bootstrap/Card"
 
+
 function TripCard ({trip}) {
+
     return (
         <>
         <Card className="my-3">

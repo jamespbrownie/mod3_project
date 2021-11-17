@@ -19,6 +19,26 @@ function App() {
     setTrips(newTripList)
   
   }
+
+  function handleDeleteTrip(trip) {
+    let result = window.confirm("are you sure you want to delete this trip?");
+    if (result) {
+      confirmedDeleteTrip(trip);
+    }
+  }
+
+  function confirmedDeleteTrip(trip) {
+    
+    fetch(`http://localhost:9292/trips/${trip.id}`, {
+        method: "DELETE"
+    })
+    .then(r=>r.json()).then(()=>{
+        setTrips(trips.filter( t => t.id !== trip.id))
+    })
+}
+
+
+
   // console.log(trips)
   return (
     <div className="App">
@@ -36,8 +56,17 @@ function App() {
       <Container id="tripbody">
         <Routes>
           <Route path="/" element={<Home trips={trips} />} />
-          <Route path="newtrip" element={<NewTripForm handleAddTrip={handleAddTrip}/>} />
-          <Route path="all_trips" element={<AllTrips trips={trips}/>} />
+          <Route 
+          path="newtrip" 
+          element={<NewTripForm 
+          handleAddTrip={handleAddTrip}
+          />} />
+          <Route 
+          path="all_trips" 
+          element={<AllTrips 
+          handleDeleteTrip={handleDeleteTrip} 
+          trips={trips}
+          />} />
           <Route path=":TripDetailid" element={<TripDetail/>} />
           
           <Route
