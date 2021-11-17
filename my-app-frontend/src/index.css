@@ -10,9 +10,9 @@ body {
   background: #ffe5c5;
   background-image: url("./images/palm_tree_cropped_superlight.png");
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
 }
 
 #header {
@@ -160,3 +160,12 @@ p {
 }
 
 
+#pagination {
+  display:flex;
+	justify-content: center;
+}
+
+#pagination .pagination .page-item a{
+  background-color: transparent;
+  border:1px solid brown;
+}

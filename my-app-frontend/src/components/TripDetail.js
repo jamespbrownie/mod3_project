@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Alert, Button, ProgressBar } from 'react-bootstrap';
+import { Alert, Button, ProgressBar, Pagination } from 'react-bootstrap';
 import DayCard from './DayCard';
 
 function TripDetail() {
@@ -15,6 +15,7 @@ function TripDetail() {
     })
     const [totalCost, setTotalCost] = useState(0)
     const [overBudget, setOverBudget] = useState(false)
+    
     let params = useParams();
     let url = "http://localhost:9292/trips/" + params.TripDetailid
     useEffect(()=>{
@@ -36,8 +37,6 @@ function TripDetail() {
             setOverBudget(false)
         }
     }
-
-    // const minDayId = 
 
     return(
         <div className="mt-3">
