@@ -39,15 +39,15 @@ function NewTripForm({handleAddTrip}) {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3">
                         <Form.Label>Trip Name</Form.Label>
-                        <Form.Control onChange={handleForm} name="name" type="text" placeholder="Enter Trip Name" />
+                        <Form.Control required onChange={handleForm} name="name" type="text" placeholder="Enter Trip Name" />
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Participants</Form.Label>
-                        <Form.Control onChange={handleForm} name="participants" type="text" placeholder="Enter Trip Participants (e.g Mark,Jason,Karen...)" />
+                        <Form.Control required onChange={handleForm} name="participants" type="text" placeholder="Enter Trip Participants (e.g Mark,Jason,Karen...)" />
                     </Form.Group>
                     <Form.Group className="mb-3">
                             <Form.Label>Budget</Form.Label>
-                            <Form.Control onChange={handleForm} name="budget" type="number" placeholder="Budget" />
+                            <Form.Control required onChange={handleForm} name="budget" type="number" placeholder="Budget" />
                         </Form.Group>
                     <Row className="mb-3">
                         <Form.Group as={Col}>

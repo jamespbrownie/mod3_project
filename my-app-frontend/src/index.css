@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
 .App {
   text-align: center;
@@ -59,6 +60,7 @@ body {
 #tripbody {
   justify-content: center;
   text-align: center;
+  
 }
 
 #tripcard {
@@ -89,6 +91,7 @@ background: linear-gradient(90deg, rgba(255,229,197,1) 0%, rgba(179,27,1,0.39259
 #daycard {
   display:flex;
 	justify-content: center;
+  
 }
 
 #daycard .card {
@@ -96,6 +99,7 @@ background: linear-gradient(90deg, rgba(255,229,197,1) 0%, rgba(179,27,1,0.39259
   border:none;
   font-family: 'Abril Fatface', cursive;
   font-weight: lighter;
+  padding: 0;
 }
 
 #daycard .card .card-header {
@@ -113,7 +117,8 @@ display: inline;
 #addActivityBtn {
   border: none;
   background: transparent;
-
+  margin: 0;
+  padding: 0;
 }
 
 #activityform {
@@ -128,3 +133,25 @@ display: inline;
   background: transparent;
   border: 1px solid brown;
 }
+
+.alert {
+  border:none
+}
+
+#tripname {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 45px;
+}
+
+p {
+  margin-bottom: 0.5rem;
+}
+
+#progressbar {
+  width: 60%;
+	justify-content: center;
+  display: inline-block;
+  color: darkred;
+}
+
+
