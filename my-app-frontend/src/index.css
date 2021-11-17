@@ -8,6 +8,11 @@
 
 body {
   background: #ffe5c5;
+  background-image: url("./images/palm_tree_cropped_superlight.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  
 }
 
 #header {
