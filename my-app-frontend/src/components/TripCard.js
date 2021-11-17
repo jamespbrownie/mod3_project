@@ -5,7 +5,7 @@ function TripCard ({trip}) {
 
     return (
         <>
-        <Card className="my-3">
+        <Card className="mt-4">
             <Card.Body>
                 {/* <Card.Img  src="https://image.shutterstock.com/image-photo/beautiful-beach-chairs-on-sandy-260nw-1917936725.jpg" /> */}
                 <Card.Title>{trip.name}</Card.Title>

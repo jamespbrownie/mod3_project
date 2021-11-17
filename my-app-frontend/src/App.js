@@ -42,6 +42,7 @@ function App() {
   // console.log(trips)
   return (
     <div className="App">
+      
       <h1 className='py-3' id="header">Vacation Planner</h1>
       <Navbar bg="transparent">
         <Container className='px-5 py-1' id="navbar">
@@ -53,6 +54,7 @@ function App() {
         </Container>
       </Navbar>
       <Outlet />
+      
       <Container id="tripbody">
         <Routes>
           <Route path="/" element={<Home trips={trips} />} />
