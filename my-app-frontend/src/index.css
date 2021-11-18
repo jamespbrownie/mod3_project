@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 
 .App {
   text-align: center;
@@ -24,12 +25,12 @@ body {
   font-size: 60px;
   color: darkred;
   margin-top: 30px;
-  text-decoration: none;
+  font-size: 4vmax;
 }
 
 #navbar {
   text-align: center;
-  width: 30%;
+  width: 32%;
   border-top: 1px solid brown;
   border-bottom: 1px solid brown;
 }
@@ -37,7 +38,7 @@ body {
 #navbar a {
   color: darkred;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 2vmin;
   font-family: 'Abril Fatface', cursive;
 }
 
@@ -161,7 +162,7 @@ display: inline;
 
 #tripname {
   font-family: 'Luckiest Guy', cursive;
-  font-size: 45px;
+  font-size: 2rem;
 }
 
 p {
@@ -194,13 +195,13 @@ p {
 
 .bottom-right {
   position: absolute;
-  top: 45%;
+  top: 48%;
   left: 50%;
   transform: translate( -50%, -50% );
   text-align: center;
   color: darkred;
   font-weight: bold;
-  font-size: 62px;
   font-family: 'Satisfy', cursive;
   text-shadow:5px 5px #ffe5c5;
+  font-size: 3vmax;
 }

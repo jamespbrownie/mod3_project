@@ -45,7 +45,7 @@ function App() {
       <div id="headerdiv">
         <Link to="/"><h1 className='py-3' id="header">Vacation Planner</h1></Link>
       </div>
-      <Navbar bg="transparent">
+      <Navbar collapseOnSelect expand="lg" bg="transparent">
         <Container className='px-5 py-1' id="navbar">
           <Link to="/newtrip">+ New Trip</Link>
           <Link to="/all_trips"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye" viewBox="0 0 16 16">
