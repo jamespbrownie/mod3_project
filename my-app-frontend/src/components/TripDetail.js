@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Alert, Button, ProgressBar, Pagination } from 'react-bootstrap';
+import { Alert, Button, ProgressBar } from 'react-bootstrap';
 import DayCard from './DayCard';
 
 function TripDetail() {
@@ -26,7 +26,7 @@ function TripDetail() {
                 setOverBudget(true)
             }
         })
-    },[totalCost])
+    },[url,totalCost])
 
     function updateTotalCost(currentCost) {
         let newCost = totalCost + currentCost
@@ -37,7 +37,6 @@ function TripDetail() {
             setOverBudget(false)
         }
     }
-
     return(
         <div className="mt-3">
             {
@@ -50,10 +49,8 @@ function TripDetail() {
                 </Alert>:null
             }
             <h3 id="tripname">{trip.name}</h3>
-            <p>{trip.start_date.slice(0,10)} to {trip.end_date.slice(0,10)} with ${trip.budget} budget</p>
-            <p>Total cost is ${trip.totalCost}</p>
-            <div id="progressbar">
-                <h5>What's left in the budget: <b>${trip.budget-trip.totalCost}</b></h5>
+            <div className="my-2" id="progressbar">
+                <h5>What's left in the ${trip.budget} budget: <b>${trip.budget-trip.totalCost}</b></h5>
                 <ProgressBar animated variant="success" max={trip.budget} now={trip.totalCost} label={`$${trip.totalCost}`} />
             </div>
             {trip.days.map((day, index)=>{

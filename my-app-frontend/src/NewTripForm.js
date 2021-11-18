@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Form, Col, Row, Button, Alert } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 
@@ -35,7 +35,7 @@ function NewTripForm({handleAddTrip}) {
     }
 
     return (
-        <div className="pt-5 trip_form">
+        <div className="pt-3 trip_form">
             {
                 tripAlert?
                 <Alert variant="success">

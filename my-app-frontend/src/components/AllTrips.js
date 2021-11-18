@@ -1,7 +1,7 @@
 import { Outlet, Link } from 'react-router-dom'
 import { Button } from "react-bootstrap"
 import TripCard from "./TripCard"
-import { Pagination, Alert } from 'react-bootstrap'
+import { Pagination} from 'react-bootstrap'
 import { useState } from 'react';
 
 function AllTrips ({trips, handleDeleteTrip}) {
@@ -25,8 +25,8 @@ function AllTrips ({trips, handleDeleteTrip}) {
         <div id="tripcard">
         {currentTrips.map((trip,index) => {
             return (
-                <div id="tripCardDiv">
-                <Link to={`/${trip.id}`} key={trip.id} >
+                <div id="tripCardDiv" key={trip.id}>
+                <Link to={`/${trip.id}`} >
                 <TripCard 
                 key={index} 
                 trip={trip} 

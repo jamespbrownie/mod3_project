@@ -170,10 +170,14 @@ p {
 }
 
 #progressbar {
-  width: 60%;
+  width: 50%;
 	justify-content: center;
   display: inline-block;
   color: darkred;
+}
+
+#progressbar h5 {
+  font-family: 'Abril Fatface', cursive;
 }
 
 

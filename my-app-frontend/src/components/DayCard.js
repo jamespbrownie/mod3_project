@@ -81,10 +81,10 @@ function DayCard({day, updateTotalCost, dayNumber}) {
                             </Form.Group>
                             <Row className="mb-3">
                                 <Form.Group as={Col}>
-                                    <Form.Control required name="cost" onChange={handleFormChange} type="number" placeholder="Cost" />
+                                    <Form.Control required name="cost" onChange={handleFormChange} type="float" placeholder="Cost" />
                                 </Form.Group>
                                 <Form.Group as={Col}>
-                                    <Form.Control required name="duration" onChange={handleFormChange} type="number" placeholder="Hours" />
+                                    <Form.Control required name="duration" onChange={handleFormChange} type="float" placeholder="Hours" />
                                 </Form.Group>
                             </Row>
                             <Button className="mx-2" variant="outline-dark" type="submit">Submit</Button>

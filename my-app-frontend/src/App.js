@@ -76,8 +76,8 @@ function App() {
             path="*"
             element={
             <main style={{ padding: "1rem" }}>
-            <p>There's nothing here!</p>
-        </main>
+              <p>There's nothing here!</p>
+          </main>
       }
     />
         </Routes>
