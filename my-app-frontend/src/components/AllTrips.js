@@ -13,7 +13,7 @@ function AllTrips ({trips, handleDeleteTrip}) {
     }
     for (let number = 1; number <= Math.ceil(trips.length/tripPerPage); number++) {
     items.push(
-        <Pagination.Item id={number} onClick={handleClick} key={number} active={number === currPage}>
+        <Pagination.Item id={number} onClick={handleClick} key={number}>
         {number}
         </Pagination.Item>,
     );
@@ -43,7 +43,7 @@ function AllTrips ({trips, handleDeleteTrip}) {
             )
         })}
         <Outlet/>
-        <div id="pagination">
+        <div className="mt-4" id="pagination">
             <Pagination>{items}</Pagination>
         </div>
         </div>

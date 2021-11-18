@@ -15,13 +15,16 @@ body {
   background-size: cover;
 }
 
-
+#headerdiv a {
+  text-decoration: none;
+}
 
 #header {
   font-family: 'Satisfy', cursive;
   font-size: 60px;
   color: darkred;
   margin-top: 30px;
+  text-decoration: none;
 }
 
 #navbar {
@@ -181,4 +184,23 @@ p {
 #pagination .pagination .page-item a{
   background-color: transparent;
   border:1px solid brown;
+}
+
+#landingimg {
+  opacity: 0.55;
+  border: 2px transparent;
+  box-shadow:1px 1px 10px 2px;
+}
+
+.bottom-right {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate( -50%, -50% );
+  text-align: center;
+  color: darkred;
+  font-weight: bold;
+  font-size: 62px;
+  font-family: 'Satisfy', cursive;
+  text-shadow:5px 5px #ffe5c5;
 }

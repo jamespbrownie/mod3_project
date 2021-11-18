@@ -42,8 +42,9 @@ function App() {
   // console.log(trips)
   return (
     <div className="App">
-      
-      <h1 className='py-3' id="header">Vacation Planner</h1>
+      <div id="headerdiv">
+        <Link to="/"><h1 className='py-3' id="header">Vacation Planner</h1></Link>
+      </div>
       <Navbar bg="transparent">
         <Container className='px-5 py-1' id="navbar">
           <Link to="/newtrip">+ New Trip</Link>
