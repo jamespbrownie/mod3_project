@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Form, Col, Row, Button } from 'react-bootstrap';
+import { Form, Col, Row, Button, Alert } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 
 function NewTripForm({handleAddTrip}) {
+    const [tripAlert, setTripAlert] = useState(false)
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [formData, setFormData] = useState({
@@ -29,11 +30,21 @@ function NewTripForm({handleAddTrip}) {
             })
             }).then((r) => r.json()).then((trip)=>{handleAddTrip(trip)})
             e.target.reset()
-            alert("Start packing your bags! Your trip has been created")
+            // alert("Start packing your bags! Your trip has been created")
+            setTripAlert(true)
     }
 
     return (
         <div className="pt-5 trip_form">
+            {
+                tripAlert?
+                <Alert variant="success">
+                    <Alert.Heading>Start packing your bags, your trip has been created! </Alert.Heading>
+                    <Button size="sm" onClick={() => setTripAlert(false)} variant="outline-success">
+                        Alright!
+                    </Button>
+                </Alert>:null
+            }
             <h2>Create New Trip</h2>
             <div id='tripform'>
                 <Form onSubmit={handleSubmit}>

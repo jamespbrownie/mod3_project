@@ -59,7 +59,7 @@ function DayCard({day, updateTotalCost, dayNumber}) {
     return (
         <div className="my-3" id="daycard">
             <Card className="text-center">
-                <Card.Header>Day {dayNumber+1}</Card.Header>
+                <Card.Header>{day.date.slice(0,10)}</Card.Header>
                 <Card.Body>
                     {activities.map((a,index)=>{
                         return (
